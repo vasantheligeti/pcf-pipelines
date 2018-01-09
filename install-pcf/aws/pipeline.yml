@@ -174,14 +174,8 @@ jobs:
       S3_ENDPOINT: {{S3_ENDPOINT}}
       TRUSTED_CERTIFICATES: {{director_certificates}}
       ert_subnet_reserved_ranges_z1: {{ert_subnet_reserved_ranges_z1}}
-      ert_subnet_reserved_ranges_z2: {{ert_subnet_reserved_ranges_z2}}
-      ert_subnet_reserved_ranges_z3: {{ert_subnet_reserved_ranges_z3}}
       services_subnet_reserved_ranges_z1: {{services_subnet_reserved_ranges_z1}}
-      services_subnet_reserved_ranges_z2: {{services_subnet_reserved_ranges_z2}}
-      services_subnet_reserved_ranges_z3: {{services_subnet_reserved_ranges_z3}}
       dynamic_services_subnet_reserved_ranges_z1: {{dynamic_services_subnet_reserved_ranges_z1}}
-      dynamic_services_subnet_reserved_ranges_z2: {{dynamic_services_subnet_reserved_ranges_z2}}
-      dynamic_services_subnet_reserved_ranges_z3: {{dynamic_services_subnet_reserved_ranges_z3}}
       infra_subnet_reserved_ranges_z1: {{infra_subnet_reserved_ranges_z1}}
 
 - name: deploy-director
