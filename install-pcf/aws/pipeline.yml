@@ -28,7 +28,7 @@ resources:
 - name: pcf-pipelines
   type: git
   source:
-    uri: git@github.com:pivotal-cf/pcf-pipelines.git
+    uri: git@github.com:vasantheligeti/pcf-pipelines.git
     branch: master
     private_key: {{git_private_key}}
 
@@ -85,7 +85,6 @@ jobs:
         - |
           ami=$(grep $REGION pivnet-opsmgr/*.yml | cut -d' ' -f2)
           echo $ami > ami/ami
-
   - task: create-infrastructure
     file: pcf-pipelines/install-pcf/aws/tasks/prepare-aws/task.yml
     params:
@@ -99,30 +98,16 @@ jobs:
       amis_nat: {{amis_nat}}
       aws_region: {{aws_region}}
       aws_az1: {{aws_az1}}
-      aws_az2: {{aws_az2}}
-      aws_az3: {{aws_az3}}
       route53_zone_id: {{ROUTE_53_ZONE_ID}}
       vpc_cidr: {{vpc_cidr}}
       public_subnet_cidr_az1: {{public_subnet_cidr_az1}}
-      public_subnet_cidr_az2: {{public_subnet_cidr_az2}}
-      public_subnet_cidr_az3: {{public_subnet_cidr_az3}}
       ert_subnet_cidr_az1: {{ert_subnet_cidr_az1}}
-      ert_subnet_cidr_az2: {{ert_subnet_cidr_az2}}
-      ert_subnet_cidr_az3: {{ert_subnet_cidr_az3}}
       services_subnet_cidr_az1: {{services_subnet_cidr_az1}}
-      services_subnet_cidr_az2: {{services_subnet_cidr_az2}}
-      services_subnet_cidr_az3: {{services_subnet_cidr_az3}}
       dynamic_services_subnet_cidr_az1: {{dynamic_services_subnet_cidr_az1}}
-      dynamic_services_subnet_cidr_az2: {{dynamic_services_subnet_cidr_az2}}
-      dynamic_services_subnet_cidr_az3: {{dynamic_services_subnet_cidr_az3}}
       infra_subnet_cidr_az1: {{infra_subnet_cidr_az1}}
       rds_subnet_cidr_az1: {{rds_subnet_cidr_az1}}
-      rds_subnet_cidr_az2: {{rds_subnet_cidr_az2}}
-      rds_subnet_cidr_az3: {{rds_subnet_cidr_az3}}
       opsman_ip_az1: {{opsman_ip_az1}}
       nat_ip_az1: {{nat_ip_az1}}
-      nat_ip_az2: {{nat_ip_az2}}
-      nat_ip_az3: {{nat_ip_az3}}
       OPSMAN_ALLOW_SSH_CIDR_RANGES: {{opsman_allow_ssh_cidr_ranges}}
       OPSMAN_ALLOW_HTTPS_CIDR_RANGES: {{opsman_allow_https_cidr_ranges}}
     ensure:
@@ -271,8 +256,6 @@ jobs:
       pcf_ert_ssl_cert: {{ERT_SSL_CERT}}
       pcf_ert_ssl_key: {{ERT_SSL_KEY}}
       pcf_az_1: {{aws_az1}}
-      pcf_az_2: {{aws_az2}}
-      pcf_az_3: {{aws_az3}}
       terraform_prefix: {{terraform_prefix}}
       S3_ENDPOINT: {{S3_ENDPOINT}}
       mysql_monitor_recipient_email: {{mysql_monitor_recipient_email}}
